@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Layout from "../Partials/Layout";
 import CFD from 'ag-cumulative-flow';
-import StatCard from 'ag-cumulative-flow-lean-stats';
+import { QuantityCard, PeriodCard, leadTime, cycleTime } from 'ag-cumulative-flow-lean-stats'
 import './style.css';
 
 export default class Dashboard extends Component {
@@ -23,7 +23,16 @@ export default class Dashboard extends Component {
                 <div className="row">
                     <div className="col-md-6">
                         <h4 className="page-header">Periods</h4>
-                        <StatCard statName="Lead Time" statType="LeadTime" number={2} />
+                        <PeriodCard lang="pt" statName="Lead Time" statType={leadTime} number={200000} />
+                        <PeriodCard lang="pt" statName="Cycle Time" statType={cycleTime} number={190000} />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-6">
+                        <h4 className="page-header">Quantities</h4>
+                        <QuantityCard statName="Backlog" number={10} />
+                        <QuantityCard statName="WIP" number={2} />
                     </div>
                 </div>
             </Layout>
